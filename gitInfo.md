@@ -1,4 +1,4 @@
-# What is Git? How is it different from other version control systems?
+# 1. What is Git? How is it different from other version control systems?
 
 Git is a **distributed version control system (DVCS)** that helps developers track changes in their codebase, collaborate with others, and manage project history efficiently. Unlike traditional **centralized version control systems (CVCS)**, Git allows every user to have a full copy of the repository, including its entire history, on their local machine.
 
@@ -17,7 +17,7 @@ This design provides more flexibility, faster performance, and better data safet
 | 5  | Speed      | Slower because every action communicates with the server.    | Faster because most actions happen locally.                |
 
 
-# 🚀 Git vs. GitHub: What’s the Difference?
+# 🚀 2. Git vs. GitHub: What’s the Difference?
 
 | Aspect              | Git                                             | GitHub                                                      |
 |---------------------|-------------------------------------------------|-------------------------------------------------------------|
@@ -42,7 +42,7 @@ This design provides more flexibility, faster performance, and better data safet
 
 GitHub is **not the only hosting platform**—there are others like **GitLab, Bitbucket, Azure DevOps, and more**—but GitHub is the most popular globally.
 
-3. # 🔍 What is a Repository in Git?
+ # 3. 🔍 What is a Repository in Git?
 
 A **repository (or "repo")** in Git is like a **project folder** that **tracks your code, files, and their complete history**.
 
