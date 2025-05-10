@@ -76,8 +76,7 @@ git init my-project
 # my-project/
 # ├── .git/    (Git’s metadata & history)
 # └── ...      (your project files)
-```bash
-
+```
 # 🔄 4. Git Command Differences git clone vs. git pull and git fetch vs. git pull
 
 ## 1️⃣ git clone vs. git pull
