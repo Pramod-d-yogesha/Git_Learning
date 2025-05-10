@@ -1,5 +1,3 @@
-What is Git? How is it different from other version control systems?
-![image](https://github.com/user-attachments/assets/6f45bb8d-42c9-48cd-bd29-ac6e81d00b3f)
 # What is Git? How is it different from other version control systems?
 
 Git is a **distributed version control system (DVCS)** that helps developers track changes in their codebase, collaborate with others, and manage project history efficiently. Unlike traditional **centralized version control systems (CVCS)**, Git allows every user to have a full copy of the repository, including its entire history, on their local machine.
