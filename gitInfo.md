@@ -15,3 +15,29 @@ This design provides more flexibility, faster performance, and better data safet
 | 3  | Online use | Always requires an internet connection for any operation.    | Only needs internet for pushing and pulling; commits work offline. |
 | 4  | Backup     | No local backup; data loss if the central server fails.      | Local copy serves as a full backup.                        |
 | 5  | Speed      | Slower because every action communicates with the server.    | Faster because most actions happen locally.                |
+
+
+# 🚀 Git vs. GitHub: What’s the Difference?
+
+| Aspect              | Git                                             | GitHub                                                      |
+|---------------------|-------------------------------------------------|-------------------------------------------------------------|
+| **Type**            | A tool (software).                              | A service (platform/website).                                |
+| **What it is**      | A **distributed version control system (DVCS)** used to track code changes locally and manage project history. | A **cloud-based hosting service** that lets you store your Git repositories online and collaborate with others. |
+| **Functionality**   | Lets you create repositories, track changes, branch, merge, etc., all on your local machine. | Adds features like **issue tracking, pull requests, web-based interface, team collaboration, and CI/CD integration.** |
+| **Internet needed?**| Works **offline** (except when pushing/pulling to/from remotes). | Fully **online platform** (you need the internet to access it). |
+| **Example tools**   | Commands like `git init`, `git commit`, `git push`. | Website features like forks, stars, GitHub Actions, and the GitHub web editor. |
+| **Ownership**       | Open-source (created by Linus Torvalds).        | Owned by Microsoft.                                          |
+| **Where it runs**   | On your **local machine** (CLI or GUI clients). | On the **web/cloud** (access via browser or API).            |
+
+---
+
+## 🔑 In simple terms:
+
+- **Git** = The tool that **manages code history** on your computer.
+- **GitHub** = A **place to store/share your Git repositories online** and collaborate with others easily.
+
+---
+
+## 💡 Bonus tip:
+
+GitHub is **not the only hosting platform**—there are others like **GitLab, Bitbucket, Azure DevOps, and more**—but GitHub is the most popular globally.
