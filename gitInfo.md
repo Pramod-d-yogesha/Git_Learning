@@ -77,3 +77,35 @@ git init my-project
 # ├── .git/    (Git’s metadata & history)
 # └── ...      (your project files)
 
+# 🔄 4. Git Command Differences git clone vs. git pull and git fetch vs. git pull
+
+## 1️⃣ git clone vs. git pull
+
+| Aspect            | `git clone`                                                | `git pull`                                              |
+|-------------------|------------------------------------------------------------|---------------------------------------------------------|
+| **What it does**  | Downloads the **entire repository** (including history) from a remote and **creates a local copy.** | Downloads **new changes** from the remote and **merges** them into your current local branch. |
+| **When to use**   | When you're setting up the repository **for the first time.** | When you **already have the repo cloned** and want to update it. |
+| **Effect**        | Creates a **new folder** with all files + full Git history. | **Updates your existing local repo** with new changes.   |
+| **Example**       | `git clone https://github.com/user/repo.git`               | `git pull origin main`                                   |
+
+✅ **Simple terms:**
+
+- `git clone`: 📥 **First-time setup.**
+- `git pull`: 🔄 **Keep things updated.**
+
+---
+
+## 2️⃣ git fetch vs. git pull
+
+| Aspect            | `git fetch`                                                | `git pull`                                               |
+|-------------------|------------------------------------------------------------|----------------------------------------------------------|
+| **What it does**  | **Downloads new commits** and updates your **remote tracking branches**—but does **not merge** them into your current branch. | Does **everything `fetch` does + merges** changes into your current branch. |
+| **When to use**   | When you want to **inspect remote changes first** before merging. | When you want to **download + automatically update** your branch. |
+| **Effect**        | Keeps your repo up-to-date with the remote, but **no local branch change** until you merge manually. | Updates both the remote tracking branches **and your local branch.** |
+| **Example**       | `git fetch origin`                                         | `git pull origin main`                                    |
+
+✅ **Simple terms:**
+
+- `git fetch`: 📡 **Check for updates, but don’t apply them yet.**
+- `git pull`: 🔄 **Check and apply updates immediately.**
+
