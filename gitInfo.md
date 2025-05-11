@@ -96,8 +96,7 @@ git init my-project
 ---
 
 # 2️⃣ `git fetch` vs. `git pull`
-![Uploading image.png…]()
-
+![image](https://github.com/user-attachments/assets/af83e15d-b56d-4d56-ae05-0300a3640b92)
 ## 📌 Scenario
 
 Imagine you're working on a project with a remote repository. Your collaborator has pushed new commits to the `main` branch on the remote repository. You want to incorporate these changes into your local repository.
