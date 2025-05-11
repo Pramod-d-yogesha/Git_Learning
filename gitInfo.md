@@ -109,3 +109,82 @@ git init my-project
 - `git fetch`: 📡 **Check for updates, but don’t apply them yet.**
 - `git pull`: 🔄 **Check and apply updates immediately.**
 
+
+# 🔄 `git fetch` vs. `git pull`
+
+## 📌 Scenario
+
+Imagine you're working on a project with a remote repository. Your collaborator has pushed new commits to the `main` branch on the remote repository. You want to incorporate these changes into your local repository.
+
+---
+
+## 📡 Using `git fetch`
+
+```bash
+git fetch origin
+```
+
+**What happens:**
+
+- Downloads new commits from the remote repository (`origin`) to your local machine.
+- Updates the remote tracking branch (`origin/main`) with the new commits.
+- **Does not** merge the changes into your local `main` branch automatically.
+
+**Your local repository state:**
+
+- `main`: Remains unchanged.
+- `origin/main`: Updated with new commits from the remote.
+
+**Next steps:**
+
+To integrate the fetched changes into your local `main` branch:
+
+```bash
+git merge origin/main
+```
+
+or
+
+```bash
+git rebase origin/main
+```
+
+This allows you to review changes before integrating them.
+
+---
+
+## 🔄 Using `git pull`
+
+```bash
+git pull origin main
+```
+
+**What happens:**
+
+- Performs a `git fetch` to retrieve new commits from the remote `main` branch.
+- Automatically merges the fetched commits into your local `main` branch.
+
+**Your local repository state:**
+
+- `main`: Updated with new commits from the remote.
+- Working directory: Reflects the latest changes.
+
+This command is a shortcut for:
+
+```bash
+git fetch origin
+git merge origin/main
+```
+
+---
+
+## 🧠 Summary
+
+| Command               | Fetches Updates | Merges Automatically | Use Case                                       |
+|------------------------|-----------------|----------------------|------------------------------------------------|
+| `git fetch origin`     | ✅              | ❌                   | When you want to **review changes** before merging |
+| `git pull origin main` | ✅              | ✅                   | When you want to **update your branch immediately** |
+
+---
+
+✅ Let me know if you'd like this saved as a `.md` file!
