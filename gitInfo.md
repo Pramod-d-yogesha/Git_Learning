@@ -95,7 +95,7 @@ git init my-project
 
 ---
 
-# 🔄 `git fetch` vs. `git pull`
+# 2️⃣ `git fetch` vs. `git pull`
 ![Uploading image.png…]()
 
 ## 📌 Scenario
@@ -172,7 +172,6 @@ git merge origin/main
 | `git pull origin main` | ✅              | ✅                   | When you want to **update your branch immediately** |
 
 ---
-## 2️⃣ git fetch vs. git pull
 
 | Aspect            | `git fetch`                                                | `git pull`                                               |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------|
