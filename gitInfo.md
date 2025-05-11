@@ -95,22 +95,8 @@ git init my-project
 
 ---
 
-## 2️⃣ git fetch vs. git pull
-
-| Aspect            | `git fetch`                                                | `git pull`                                               |
-|-------------------|------------------------------------------------------------|----------------------------------------------------------|
-| **What it does**  | **Downloads new commits** and updates your **remote tracking branches**—but does **not merge** them into your current branch. | Does **everything `fetch` does + merges** changes into your current branch. |
-| **When to use**   | When you want to **inspect remote changes first** before merging. | When you want to **download + automatically update** your branch. |
-| **Effect**        | Keeps your repo up-to-date with the remote, but **no local branch change** until you merge manually. | Updates both the remote tracking branches **and your local branch.** |
-| **Example**       | `git fetch origin`                                         | `git pull origin main`                                    |
-
-✅ **Simple terms:**
-
-- `git fetch`: 📡 **Check for updates, but don’t apply them yet.**
-- `git pull`: 🔄 **Check and apply updates immediately.**
-
-
 # 🔄 `git fetch` vs. `git pull`
+![Uploading image.png…]()
 
 ## 📌 Scenario
 
@@ -186,5 +172,17 @@ git merge origin/main
 | `git pull origin main` | ✅              | ✅                   | When you want to **update your branch immediately** |
 
 ---
+## 2️⃣ git fetch vs. git pull
 
-✅ Let me know if you'd like this saved as a `.md` file!
+| Aspect            | `git fetch`                                                | `git pull`                                               |
+|-------------------|------------------------------------------------------------|----------------------------------------------------------|
+| **What it does**  | **Downloads new commits** and updates your **remote tracking branches**—but does **not merge** them into your current branch. | Does **everything `fetch` does + merges** changes into your current branch. |
+| **When to use**   | When you want to **inspect remote changes first** before merging. | When you want to **download + automatically update** your branch. |
+| **Effect**        | Keeps your repo up-to-date with the remote, but **no local branch change** until you merge manually. | Updates both the remote tracking branches **and your local branch.** |
+| **Example**       | `git fetch origin`                                         | `git pull origin main`                                    |
+
+✅ **Simple terms:**
+
+- `git fetch`: 📡 **Check for updates, but don’t apply them yet.**
+- `git pull`: 🔄 **Check and apply updates immediately.**
+- 
