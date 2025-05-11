@@ -187,7 +187,7 @@ git merge origin/main
 
 # 🔄 5. Git Workflow: Working Directory, Staging Area, and Repository
 
-## 🔶 What is the **Staging Area**?
+## 1. What is the **Staging Area**?
 
 The **staging area** (also called the **index**) is like a **waiting room** for your changes before they are saved permanently in Git.
 
@@ -245,7 +245,7 @@ Only `file1.txt` gets saved in Git history.
 
 ---
 
-## 1. **Working Directory (Working Tree)**
+## 2. **Working Directory (Working Tree)**
 
 - This is where you **actually edit files** on your system.
 - It reflects the **current state of your project**.
