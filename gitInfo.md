@@ -280,5 +280,49 @@ Now the change is saved in the local Git database.
 | Repository       | Stores committed project history        | `git commit -m "message"`        |
 
 ---
+# 🔄 6. Checking the Status of Your Git Repository
 
+To check the status of your Git repository, you use the command:
+
+
+### What it does:
+- **Shows modified files**: Lists the files that have been changed but not yet staged.
+- **Shows staged files**: Displays files that are staged and ready to be committed.
+- **Shows untracked files**: Files that are in your working directory but not yet added to the repository.
+- **Branch information**: Displays the current branch you're working on and any changes compared to the remote repository.
+
+### Example Output:
+```bash
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified: file1.txt
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+### Breakdown of Output:
+- **Changes not staged for commit**: Files you've modified but haven't added to the staging area.
+- **Untracked files**: New files that Git hasn't yet started tracking.
+- **Staged changes**: Files you've added to the staging area, ready for commit.
+- **Branch info**: Indicates which branch you're currently on and whether it's up to date with the remote.
+
+---
+
+🧠 **Summary**
+
+| Area              | Purpose                                  | Command to check status         |
+|-------------------|------------------------------------------|---------------------------------|
+| Modified Files    | Files changed but not staged             | Files listed in "Changes not staged for commit" |
+| Staged Files      | Files ready to be committed              | `git add <filename>`            |
+| Untracked Files   | Files not yet tracked by Git             | Listed under "Untracked files" |
+| Branch Information| Shows which branch you are on and status | `git status`                    |
 
