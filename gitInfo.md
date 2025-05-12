@@ -372,3 +372,127 @@ When you run `git add`, you're telling Git:
 These files are moved from the **Working Directory** ➡️ **Staging Area**.
 
 ---
+# 🔄 7. How to Revert a Pushed Commit in Git
+
+We'll use **VS Code** to visually demonstrate how the code is affected by Git commands.
+
+Initially, we have **5 commits** pushed to the remote branch on GitHub.
+
+---
+
+## ✅ Step 1: Make a New Commit and Push
+
+```bash
+# Add a change
+git commit -am "change number 1"
+
+# Push the change to remote
+git push origin main
+```
+
+After pushing, GitHub reflects the new commit, so now the remote branch has **6 commits**.
+
+---
+
+## 🧩 Two Options to Revert a Pushed Commit
+
+### 🔁 Option 1: Use `git revert` (Recommended for Shared/Public Branches)
+
+- **Purpose:** Creates a new commit that *reverts the changes* made by a previous commit.
+- **Safe for team use**: Keeps the commit history intact.
+- **Results in:** Original commit + new revert commit.
+
+```bash
+git revert HEAD
+```
+
+> A text editor will open for editing the revert commit message. Save and close it.
+
+```bash
+git push origin main
+```
+
+- GitHub now shows **7 commits**, where the last one is a reversal of the 6th commit.
+
+---
+
+### ⚠️ Option 2: Use `git reset` (Use for Private Branches)
+
+- **Purpose:** Removes commits from history.
+- **Only safe if you're the only one working on the branch**.
+- **Requires force-pushing** to overwrite history on the remote.
+
+```bash
+# Soft reset (removes commit but keeps code unstaged)
+git reset HEAD~1
+```
+
+OR
+
+```bash
+# Hard reset (removes commit and code changes)
+git reset --hard HEAD~1
+```
+
+Then, force push:
+
+```bash
+git push -f origin main
+```
+
+- GitHub will now show only **5 commits**, as if the last one never happened.
+
+---
+
+## 🧠 Summary
+
+| Option      | Command                        | Use Case                     | Effect                                       |
+|-------------|--------------------------------|------------------------------|----------------------------------------------|
+| `git revert` | `git revert HEAD`              | Shared/Public branches       | Creates new commit that undoes the last one  |
+| `git reset`  | `git reset [--soft|--hard] HEAD~1` + `git push -f` | Private branches (only you) | Deletes commit from history (requires force push) |
+
+
+# 🔄 Undo Last Commit in Git – `--soft` vs `--mixed` Reset
+
+## Option 3: `git reset --soft HEAD~1`
+
+### ✅ What it does:
+- Undoes the **last commit**
+- Keeps all your changes in the **staging area**
+- Useful when you want to **redo the commit** (maybe change message or add files)
+
+### 📂 Example:
+```bash
+git reset --soft HEAD~1
+git commit -m "Updated commit message"
+```
+
+---
+
+## Option 4 :`git reset --mixed HEAD~1`
+
+### ✅ What it does:
+- Undoes the **last commit**
+- Keeps all changes in the **working directory**
+- Unstages everything (so nothing is in the staging area)
+- Useful when you want to **manually stage** files again
+
+### 📂 Example:
+```bash
+git reset --mixed HEAD~1
+# Then stage and commit again
+git add file1.txt
+git commit -m "New commit"
+```
+
+---
+
+## 🧠 Visual Comparison Table
+
+| Command                    | Removes Last Commit | Keeps Changes | In Staging Area? | Use When...                              |
+|----------------------------|---------------------|---------------|------------------|------------------------------------------|
+| `git reset --soft HEAD~1`  | ✅                  | ✅            | ✅               | You want to redo the last commit         |
+| `git reset --mixed HEAD~1` | ✅                  | ✅            | ❌               | You want to re-select files to stage     |
+
+---
+
