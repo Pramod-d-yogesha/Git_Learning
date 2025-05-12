@@ -452,7 +452,7 @@ git push -f origin main
 | `git reset`  | `git reset [--soft|--hard] HEAD~1` + `git push -f` | Private branches (only you) | Deletes commit from history (requires force push) |
 
 
-# 🔄 Undo Last Commit in Git – `--soft` vs `--mixed` Reset
+## 🔄 Undo Last Commit in Git – `--soft` vs `--mixed` Reset
 
 ## Option 3: `git reset --soft HEAD~1`
 
