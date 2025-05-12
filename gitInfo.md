@@ -495,4 +495,79 @@ git commit -m "New commit"
 | `git reset --mixed HEAD~1` | ✅                  | ✅            | ❌               | You want to re-select files to stage     |
 
 ---
+# 🚫 9. What is `.gitignore` and How Does It Work?
+
+## 📄 What is `.gitignore`?
+
+`.gitignore` is a special file in a Git repository that tells Git **which files or folders to ignore**.  
+Git will **not track changes** to these files, meaning they won’t be staged, committed, or pushed.
+
+---
+
+## 🔍 Why Use `.gitignore`?
+
+You typically ignore:
+
+- Temporary files (e.g., `*.log`, `*.tmp`)
+- Build artifacts (e.g., `*.o`, `*.class`, `dist/`, `build/`)
+- System-specific files (e.g., `.DS_Store`, `Thumbs.db`)
+- IDE/configuration files (e.g., `.vscode/`, `.idea/`)
+- Secrets (e.g., `.env`, `config.json`)
+
+---
+
+## 🛠️ How It Works
+
+1. **Create a `.gitignore` file** in your root directory.
+2. **Add file/folder patterns** you want Git to ignore.
+3. **Save the file**—Git will now exclude matching files from tracking (unless already tracked).
+
+> 📝 Note: If a file is already being tracked by Git, adding it to `.gitignore` won't remove it.  
+> You'll need to untrack it first using:
+> ```bash
+> git rm --cached filename
+> ```
+
+---
+
+## ✏️ Example `.gitignore`
+
+```gitignore
+# Ignore all .log files
+*.log
+
+# Ignore node_modules folder
+node_modules/
+
+# Ignore IDE settings
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore environment variables
+.env
+```
+
+---
+
+## 📂 Location
+
+- Typically placed in the **root directory** of your repository.
+- You can also have **nested `.gitignore` files** in subdirectories for more control.
+
+---
+
+## ✅ Summary
+
+| Aspect           | Description                                   |
+|------------------|-----------------------------------------------|
+| Purpose          | Tells Git what to ignore                      |
+| Tracked files    | Must be untracked manually if already added   |
+| Common usage     | Ignore logs, build folders, secrets, IDE data |
+| Format           | One pattern per line                          |
+
+---
 
