@@ -69,6 +69,7 @@ Both `merge` and `rebase` are used to **integrate changes** from one branch into
 ---
 
 ## 🔄 Git Merge
+![image](https://github.com/user-attachments/assets/d3a7134c-1c33-48bd-b062-4910abdd197e)
 
 ### ➤ What it does:
 - Combines two branches and **creates a new merge commit**.
@@ -102,6 +103,10 @@ A---B---C---F (main)
 ---
 
 ## 📦 Git Rebase
+### add the commits from feature branch into main branch
+![image](https://github.com/user-attachments/assets/927f3ba7-c24c-4076-809e-a277e1282355)
+![image](https://github.com/user-attachments/assets/152cd7b0-6c23-4e09-9206-a429d7735558)
+
 
 ### ➤ What it does:
 - **Moves the base** of your feature branch to the tip of the target branch.
@@ -152,6 +157,8 @@ A---B---C---D'---E' (feature-branch rebased onto main)
 
 ---
 ## 📦Squash Commits
+![image](https://github.com/user-attachments/assets/30c758fb-d234-4091-b15f-280e24d97603)
+
 - **Use case**: Combine multiple feature commits into a single one when merging to main
 - **How it works**: Collapses A, B, C into one commit
 - **Pros**: Clean history on main, easy to revie
@@ -161,5 +168,6 @@ A---B---C---D'---E' (feature-branch rebased onto main)
 git checkout main
 git merge --squash feature
 ````
+![image](https://github.com/user-attachments/assets/c8c1f89b-32c2-4479-95ab-69bb1dd119b4)
 
 
