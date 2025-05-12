@@ -171,10 +171,10 @@ git merge --squash feature
 
 
 =============================================
-## 🔄 3.How to Resolve Merge Conflicts in Git
+## 🔄 3.How to Resolve Merge Conflicts in Git( https://www.youtube.com/watch?v=nDRWhKc5Yd4 )
 - A merge conflict occurs when Git cannot automatically reconcile differences between two branches. This typically happens when the same line in a file is modified differently in both branches.
 
-** 🪜 Step-by-Step: Resolving a Merge Conflict **
+## 🪜 Step-by-Step: Resolving a Merge Conflict **
 **1. Trigger a Conflict (example)**
 ```bash
 git checkout main
@@ -223,5 +223,139 @@ git merge --continue
 - KDiff3
 - Beyond Compare
 
+==========================================================================
+## 🍒 What is Git Cherry Pick? ( https://www.youtube.com/watch?v=i657Bg_HAWI )
+![image](https://github.com/user-attachments/assets/e1a2c94d-52b5-469f-82c9-b886d0fd7455)
+
+**Cherry-picking** means choosing a specific commit from one branch and applying it to another.
+
+To be more precise: `git cherry-pick` applies the changes introduced by one or more existing commits onto another branch. It's similar to `git merge` or `git rebase`, but instead of taking a whole branch’s worth of commits, cherry-pick lets you apply only the changes you want.
+
+---
+![image](https://github.com/user-attachments/assets/04a767fa-4203-4dfb-af33-3ce0be043090)
+
+## 🛠 Real-World Example
+
+Imagine you're working on a web application with a colleague. Your repository has two branches:
+
+* `main` (white)
+* `nav` (blue – your colleague’s branch for navigation work)
+
+Your colleague fixed a bug on their branch **before** starting on the new navigation features. You’d like to grab just the bug fix onto your `main` branch — without taking any unfinished navigation work.
+
+This is the perfect use case for `git cherry-pick`.
+![image](https://github.com/user-attachments/assets/81651116-73d0-4c02-83d1-23cef0276cee)
+
+---
+
+## 🔍 Step-by-Step Guide
+
+### Step 1: Find the Commit Hash
+
+To cherry-pick a commit, you need its hash (unique ID). Use:
+
+```bash
+git log <branch-name> --oneline
+```
+
+
+For example:
+
+```bash
+git log nav --oneline
+```
+![image](https://github.com/user-attachments/assets/5fe6aca1-08ec-45a1-a377-b357d8d01e23)
+
+This will list all the commits on the `nav` branch in a readable format. Identify the hash of the commit you want (e.g., the bug fix), and copy it.
+
+---
+
+### Step 2: Switch to Your Target Branch
+
+Make sure you're on the branch you want to apply the commit to:
+
+```bash
+git checkout main
+```
+
+Check your status with:
+
+```bash
+git status
+```
+
+---
+
+### Step 3: Run Cherry-Pick
+
+Apply the commit using:
+
+```bash
+git cherry-pick <commit-hash>
+```
+![image](https://github.com/user-attachments/assets/57a85492-be4d-47bc-9a23-5fc24465d6d8)
+
+This will apply the changes from that commit and create a **new commit** on your current branch. You can verify it by running:
+
+```bash
+git log --oneline
+```
+
+You’ll notice that the hash of the new commit is different from the original — cherry-pick applies the changes but doesn’t copy the original commit ID.
+
+---
+
+## ➕ Cherry-Pick Multiple Commits
+![image](https://github.com/user-attachments/assets/bf15f8aa-e23f-473c-b335-27a2de2f7463)
+
+Want to apply more than one commit?
+You can specify multiple hashes:
+
+```bash
+git cherry-pick <hash1> <hash2>
+```
+
+Or use a commit range:
+
+```bash
+git cherry-pick <start>^..<end>
+```
+![image](https://github.com/user-attachments/assets/5e5685aa-39ef-438f-9731-3c9044e330d9)
+
+Git will apply the commits **in the order** you list them, one at a time. For each commit, Git creates a **new commit** on your branch.
+
+---
+
+## ⚠️ Handling Conflicts
+
+If any of the cherry-picked commits touch the same lines as your current branch, you'll get a **merge conflict**. Don’t panic — this is normal.
+
+To resolve conflicts:
+
+1. Open the conflicting files.
+2. Edit them to resolve differences.
+3. Stage the resolved files:
+
+```bash
+git add <filename>
+```
+
+4. Continue cherry-pick:
+
+```bash
+git cherry-pick --continue
+```
+
+---
+
+## 🧠 Summary
+
+* `git cherry-pick` is a precise tool to apply specific commits across branches.
+* It creates new commits on your current branch with the same changes as the original commits.
+* Be aware of merge conflicts and resolve them carefully.
+
+If you’re looking for help with conflicts during cherry-pick, there’s a separate video explaining just that!
+
+Thanks for watching, and happy coding!
 
 
