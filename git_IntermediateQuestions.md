@@ -2,15 +2,6 @@
 ![image](https://github.com/user-attachments/assets/e781ef06-8d64-483d-bd5b-7e7d872632e4)
 ![image](https://github.com/user-attachments/assets/c0426f8b-bc0f-4e9c-bf23-b73957a2a715)
 
-# 🚀 How Git Works: Explained Simply
-
-Git can seem confusing at first, but understanding a few key concepts makes it much easier.
-
-In this guide, we'll walk through the basic Git workflow and clear up some common misconceptions.
-
-> _This explanation is based on a video by Sahn, co-author of best-selling system design books, known for using simple animations to explain complex concepts._
-
----
 
 ## 🧭 Where Your Code Lives in Git
 
