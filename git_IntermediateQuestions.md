@@ -60,3 +60,106 @@ Sometimes you need to switch contexts—perhaps to fix a bug or develop a new fe
 Branching enables isolated feature development, quick bug fixes, and smooth collaboration among teams.
 
 ---
+
+=========================================================================================================
+# 🔀 Git Merge vs. Git Rebase
+
+Both `merge` and `rebase` are used to **integrate changes** from one branch into another. The difference lies in **how** they do it.
+
+---
+
+## 🔄 Git Merge
+
+### ➤ What it does:
+- Combines two branches and **creates a new merge commit**.
+- Keeps the **original branch history intact**.
+- **Use case:** Incorporate changes from one branch into another
+- **How it works:** Creates a **merge commit** to join the histories
+- **Analogy:** Ties two ropes together with a knot
+- **Pros:** Preserves full history
+- **Cons:** Results in a messy history with many merge commits
+  
+### ➤ Example:
+```bash
+git checkout main
+git merge feature-branch
+```
+
+### ✅ Pros:
+- Preserves the actual history and context of changes.
+- Safer for **shared/public branches**.
+
+### ❌ Cons:
+- History becomes more **cluttered** with merge commits.
+
+### 📈 Example Git History (after merge):
+```
+A---B---C---F (main)
+         \ /
+          D---E (feature-branch)
+```
+
+---
+
+## 📦 Git Rebase
+
+### ➤ What it does:
+- **Moves the base** of your feature branch to the tip of the target branch.
+- **Rewrites commit history** to make it look linear.
+- **Use case**: Reapply your feature branch commits on top of the updated main
+- **How it works**: Moves the base of your feature branch to the latest commit on main, replaying your commits
+- **Analogy**: Rearranges the timeline to appear as a straight line
+
+
+### ➤ Example:
+```bash
+git checkout feature-branch
+git rebase main
+```
+
+### ✅ Pros:
+- Clean, **linear history**.
+- Easier to follow when debugging with tools like `git log`.
+
+### ❌ Cons:
+- **Rewrites history** – can be dangerous if already pushed to a shared repository.
+- Not recommended for **shared branches** unless all team members are coordinated.
+
+### 📈 Example Git History (after rebase):
+```
+A---B---C---D'---E' (feature-branch rebased onto main)
+                   (main)
+```
+
+---
+
+## 🧠 Summary Table
+
+| Feature         | `git merge`                        | `git rebase`                        |
+|----------------|------------------------------------|-------------------------------------|
+| Commits         | Creates a **merge commit**         | **Rewrites** commit history         |
+| History         | Non-linear (branching)             | Linear (looks like one branch)      |
+| Use case        | Shared branches                    | Private/local branches              |
+| Safety          | Safe for collaboration             | Use with caution (don’t rebase pushed commits) |
+| Complexity      | Simple                             | More complex (rewriting history)    |
+
+---
+
+## 🚨 When to Use What?
+
+- Use **`merge`** when working on **team/shared branches** — it’s safer and maintains full context.
+- Use **`rebase`** on **local feature branches** before merging to clean up history.
+
+---
+## 📦Squash Commits
+- **Use case**: Combine multiple feature commits into a single one when merging to main
+- **How it works**: Collapses A, B, C into one commit
+- **Pros**: Clean history on main, easy to revie
+- **Cons**: Loses detailed commit info in main history (though preserved in the feature branch)
+
+````bash
+git checkout main
+git merge --squash feature
+````
+
+
