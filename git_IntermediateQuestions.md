@@ -175,7 +175,7 @@ git merge --squash feature
 - A merge conflict occurs when Git cannot automatically reconcile differences between two branches. This typically happens when the same line in a file is modified differently in both branches.
 
 ** 🪜 Step-by-Step: Resolving a Merge Conflict **
-1. Trigger a Conflict (example)
+**1. Trigger a Conflict (example)**
 ```bash
 git checkout main
 git pull origin main
@@ -186,38 +186,37 @@ git merge main
 ---
 CONFLICT (content): Merge conflict in filename.txt
 Automatic merge failed; fix conflicts and then commit the result.
-2. Identify Conflicted Files
+**2. Identify Conflicted Files**
 ```bash
 git status
 It shows which files are in conflict.
 ```
-3. Open the Conflict
-Open the file. Git will mark conflicts like this:
+**3. Open the Conflict**
 
+Open the file. Git will mark conflicts like this:
 <<<<<<< HEAD
 This is the content from your current branch
-=======
 This is the content from the branch you are merging
 >>>>>>> main
 4. Edit the File
-Choose one version, combine them, or modify as needed:
+**Choose one version, combine them, or modify as needed:**
 
 This is the resolved content, combining both changes as needed.
 Then remove the conflict markers (<<<<<<<, =======, >>>>>>>).
 
-5. Mark as Resolved
+**5. Mark as Resolved**
 After editing:
 ```bash
 git add filename.txt
 ```
-7. Commit the Merge
+**7. Commit the Merge**
 ```bash
 git commit
 Or if Git paused the merge, just:
 git merge --continue
 ```
 # 🛠 Tools That Help
-** You can use visual merge tools to simplify resolution: **
+**You can use visual merge tools to simplify resolution:**
 
 - VS Code (has built-in conflict resolution UI)
 - Meld
