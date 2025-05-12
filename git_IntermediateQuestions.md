@@ -61,8 +61,7 @@ Branching enables isolated feature development, quick bug fixes, and smooth coll
 
 ---
 
-=========================================================================================================
-# 🔀 Git Merge vs. Git Rebase
+# 🔀 2. Git Merge vs. Git Rebase vs. Git Squash (https://www.youtube.com/watch?v=0chZFIZLR_0)
 
 Both `merge` and `rebase` are used to **integrate changes** from one branch into another. The difference lies in **how** they do it.
 
