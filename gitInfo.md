@@ -326,3 +326,49 @@ no changes added to commit (use "git add" and/or "git commit -a")
 | Untracked Files   | Files not yet tracked by Git             | Listed under "Untracked files" |
 | Branch Information| Shows which branch you are on and status | `git status`                    |
 
+
+# 🔄 7. How Do You Add Files to the Staging Area in Git?
+
+To add files to the **staging area** in Git (i.e., to prepare them for the next commit), you use the `git add` command.
+
+---
+
+## 📌 Command to Add Files to Staging
+
+```bash
+git add <filename>
+```
+
+### ✅ Examples
+
+- Add a specific file:
+  ```bash
+  git add index.html
+  ```
+
+- Add multiple files:
+  ```bash
+  git add index.html app.js style.css
+  ```
+
+- Add all modified and untracked files in the current directory:
+  ```bash
+  git add .
+  ```
+
+- Add all files recursively (including deleted ones):
+  ```bash
+  git add -A
+  ```
+
+---
+
+## 🧠 What Happens?
+
+When you run `git add`, you're telling Git:
+
+> "I'm ready to include this file (or changes) in the next snapshot (commit)."
+
+These files are moved from the **Working Directory** ➡️ **Staging Area**.
+
+---
