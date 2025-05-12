@@ -372,7 +372,7 @@ When you run `git add`, you're telling Git:
 These files are moved from the **Working Directory** ➡️ **Staging Area**.
 
 ---
-# 🔄 7. How to Revert a Pushed Commit in Git
+# 🔄 8. How to Revert a Pushed Commit in Git
 
 We'll use **VS Code** to visually demonstrate how the code is affected by Git commands.
 
