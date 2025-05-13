@@ -374,9 +374,9 @@ These files are moved from the **Working Directory** ➡️ **Staging Area**.
 ---
 # 🔄 8. How to Revert a Pushed Commit in Git
 
-We'll use **VS Code** to visually demonstrate how the code is affected by Git commands.
+We'll use VS Code to visually demonstrate how the code is affected by Git commands.
 
-Initially, we have **5 commits** pushed to the remote branch on GitHub.
+Initially, we have 5 commits pushed to the remote branch on GitHub.
 
 ---
 
@@ -390,111 +390,98 @@ git commit -am "change number 1"
 git push origin main
 ```
 
-After pushing, GitHub reflects the new commit, so now the remote branch has **6 commits**.
+After pushing, GitHub reflects the new commit, so now the remote branch has 6 commits.
 
 ---
 
 ## 🧩 Two Options to Revert a Pushed Commit
 
-### 🔁 Option 1: Use `git revert` (Recommended for Shared/Public Branches)
+---
 
-- **Purpose:** Creates a new commit that *reverts the changes* made by a previous commit.
-- **Safe for team use**: Keeps the commit history intact.
-- **Results in:** Original commit + new revert commit.
+### 🔁 Option 1: `git revert` (✅ Recommended for Public or Shared Branches)
 
+#### 🔧 What it does:
+- Creates a new commit that undoes the changes of the specified commit.
+- Keeps the full history (the old commit still exists).
+- Safe for collaboration because it doesn't rewrite history.
+
+#### 💻 Command:
 ```bash
 git revert HEAD
-```
-
-> A text editor will open for editing the revert commit message. Save and close it.
-
-```bash
 git push origin main
 ```
 
-- GitHub now shows **7 commits**, where the last one is a reversal of the 6th commit.
+#### ✅ Use this when:
+- You already pushed the commit.
+- You are working on a team/shared branch (like `main` or `develop`).
 
 ---
 
-### ⚠️ Option 2: Use `git reset` (Use for Private Branches)
+### ⚠️ Option 2: `git reset` (Use only on Private Branches)
 
-- **Purpose:** Removes commits from history.
-- **Only safe if you're the only one working on the branch**.
-- **Requires force-pushing** to overwrite history on the remote.
-
-```bash
-# Soft reset (removes commit but keeps code unstaged)
-git reset HEAD~1
-```
-
-OR
-
-```bash
-# Hard reset (removes commit and code changes)
-git reset --hard HEAD~1
-```
-
-Then, force push:
-
-```bash
-git push -f origin main
-```
-
-- GitHub will now show only **5 commits**, as if the last one never happened.
+#### 🔧 What it does:
+- Removes the commit from history.
+- Allows you to either keep or discard the code changes (depends on soft/mixed/hard).
+- Requires force-pushing to overwrite history on the remote.
 
 ---
 
-## 🧠 Summary
+#### 🔹 `git reset --soft HEAD~1`
 
-| Option      | Command                        | Use Case                     | Effect                                       |
-|-------------|--------------------------------|------------------------------|----------------------------------------------|
-| `git revert` | `git revert HEAD`              | Shared/Public branches       | Creates new commit that undoes the last one  |
-| `git reset`  | `git reset [--soft|--hard] HEAD~1` + `git push -f` | Private branches (only you) | Deletes commit from history (requires force push) |
+- Undo the last commit, but keep all changes staged (in the index).
 
+##### 💻 Use case:
+You want to edit the commit message or add more files, then recommit.
 
-## 🔄 Undo Last Commit in Git – `--soft` vs `--mixed` Reset
-
-## Option 3: `git reset --soft HEAD~1`
-
-### ✅ What it does:
-- Undoes the **last commit**
-- Keeps all your changes in the **staging area**
-- Useful when you want to **redo the commit** (maybe change message or add files)
-
-### 📂 Example:
 ```bash
 git reset --soft HEAD~1
 git commit -m "Updated commit message"
+git push -f origin main
 ```
 
 ---
 
-## Option 4 :`git reset --mixed HEAD~1`
+#### 🔸 `git reset --mixed HEAD~1`
 
-### ✅ What it does:
-- Undoes the **last commit**
-- Keeps all changes in the **working directory**
-- Unstages everything (so nothing is in the staging area)
-- Useful when you want to **manually stage** files again
+- Undo the last commit.
+- Keep changes in your working directory.
+- Unstage all changes.
 
-### 📂 Example:
+##### 💻 Use case:
+You want to reselect what to include in the commit.
+
 ```bash
 git reset --mixed HEAD~1
-# Then stage and commit again
 git add file1.txt
-git commit -m "New commit"
+git commit -m "Recommit only one file"
+git push -f origin main
 ```
 
 ---
 
-## 🧠 Visual Comparison Table
+#### 🔥 `git reset --hard HEAD~1`
 
-| Command                    | Removes Last Commit | Keeps Changes | In Staging Area? | Use When...                              |
-|----------------------------|---------------------|---------------|------------------|------------------------------------------|
-| `git reset --soft HEAD~1`  | ✅                  | ✅            | ✅               | You want to redo the last commit         |
-| `git reset --mixed HEAD~1` | ✅                  | ✅            | ❌               | You want to re-select files to stage     |
+- Completely deletes the last commit and its changes.
+- Does **not** keep the code — it's gone unless backed up.
+
+##### 💻 Use case:
+You're sure the last commit and changes are not needed.
+
+```bash
+git reset --hard HEAD~1
+git push -f origin main
+```
 
 ---
+
+## ⚠️ Summary Table
+
+| Option               | Command                                | Keeps Changes?     | Rewrites History? | Safe for Teams? |
+|----------------------|----------------------------------------|--------------------|-------------------|------------------|
+| `git revert`         | `git revert HEAD`                      | ✅ Yes              | ❌ No              | ✅ Yes           |
+| `git reset --soft`   | `git reset --soft HEAD~1` + `push -f`  | ✅ In staging       | ✅ Yes             | ❌ No            |
+| `git reset --mixed`  | `git reset --mixed HEAD~1` + `push -f` | ✅ In working dir   | ✅ Yes             | ❌ No            |
+| `git reset --hard`   | `git reset --hard HEAD~1` + `push -f`  | ❌ No               | ✅ Yes             | ❌ No            |
 # 🚫 9. What is `.gitignore` and How Does It Work?
 
 ## 📄 What is `.gitignore`?
