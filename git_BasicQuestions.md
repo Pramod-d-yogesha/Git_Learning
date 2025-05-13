@@ -570,4 +570,44 @@ Thumbs.db
 | Format           | One pattern per line                          |
 
 ---
+## 📘 10. `git init` Command in Git
+
+The `git init` command is used to **initialize a new Git repository**.
+
+---
+
+### ✅ What It Does
+- Creates a new **`.git`** directory in your current folder.
+- This `.git` directory contains all the necessary metadata and configuration for version control (like commits, branches, etc.).
+- After running this command, your project becomes a **Git-tracked repository**.
+
+---
+
+### 🧪 Usage
+```bash
+git init
+```
+**🧰 Example**
+
+```bash
+mkdir my_project
+cd my_project
+git init
+```
+- This will create a new Git repository in my_project.
+
+**🗂️ What Happens Internally**
+- A .git folder is created with subdirectories such as:
+---
+
+1. objects/
+2. refs/
+3. HEAD
+4. config
+
+---
+
+**🔄 When to Use**
+- When starting a new project from scratch.
+- To convert an existing project into a Git repository.
 
