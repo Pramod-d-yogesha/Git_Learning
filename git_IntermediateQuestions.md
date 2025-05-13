@@ -215,7 +215,7 @@ git commit
 Or if Git paused the merge, just:
 git merge --continue
 ```
-# 🛠 Tools That Help
+## 🛠 Tools That Help
 **You can use visual merge tools to simplify resolution:**
 
 - VS Code (has built-in conflict resolution UI)
@@ -224,7 +224,7 @@ git merge --continue
 - Beyond Compare
 
 ==========================================================================
-## 🍒 What is Git Cherry Pick? ( https://www.youtube.com/watch?v=i657Bg_HAWI )
+## 🍒 4. What is Git Cherry Pick? ( https://www.youtube.com/watch?v=i657Bg_HAWI )
 ![image](https://github.com/user-attachments/assets/e1a2c94d-52b5-469f-82c9-b886d0fd7455)
 
 **Cherry-picking** means choosing a specific commit from one branch and applying it to another.
@@ -353,9 +353,70 @@ git cherry-pick --continue
 * `git cherry-pick` is a precise tool to apply specific commits across branches.
 * It creates new commits on your current branch with the same changes as the original commits.
 * Be aware of merge conflicts and resolve them carefully.
+---
+# 🧹5. How to Delete a Git Branch Locally and Remotely
+Git branches help you manage different lines of development, but once they're merged or no longer needed, it's good practice to delete them to keep your repository clean.
 
-If you’re looking for help with conflicts during cherry-pick, there’s a separate video explaining just that!
+## 🔸 Delete a Local Branch
+To delete a branch locally (on your machine):
 
-Thanks for watching, and happy coding!
+```bash
+git branch -d branch_name
+```
+- Use -d to delete only if it has been merged.
+- Use -D to force delete, even if not merged.
 
+💡 Example:
 
+```bash
+git branch -d feature/login
+```
+## 🔸 Delete a Remote Branch
+- To delete a branch from the remote repository:
+
+```bash
+git push origin --delete branch_name
+```
+💡 Example:
+
+```bash
+git push origin --delete feature/login
+```
+This tells the remote server (like GitHub, GitLab, etc.) to delete the branch.
+---
+**🔍 Useful Tips**
+- Always ensure the branch is no longer needed before deleting.
+- You cannot delete the branch you’re currently on — switch to another branch first.
+- Use git branch -a to view all local and remote branches.
+
+---
+## ✏️ How to Change the Commit Message of the Last Commit in Git
+
+If you’ve made a commit but want to change its message (for example, to fix a typo or improve clarity), Git allows you to do that easily — as long as you haven’t pushed it yet.
+
+---
+
+# 🔧6.  Change the Last Commit Message (Local)
+
+- Use the `--amend` flag:
+
+```bash
+git commit --amend
+```
+- This will open your default editor (like Vim or VS Code), allowing you to edit the last commit message. Save and close to update it.
+
+**💡 To directly change it from the command line without opening an editor:**
+
+```bash
+git commit --amend -m "New commit message"
+```
+**⚠️Important Notes**
+- If the commit is already pushed to a shared remote repository, amending the message changes the commit hash — so you'll need to force-push:
+
+```bash
+git push --force
+```
+**⚠️ Force-pushing can overwrite changes on the remote. Only do this if you're sure others haven’t based work on that commit.**
+
+**🧪 Best Practice**
+- Avoid amending commits that are already pushed and used by others. For local or solo branches, it's totally safe.
